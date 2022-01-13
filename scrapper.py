@@ -132,20 +132,16 @@ def extract_speech_details(
         urls.append(link)
         titles.append(title)
 
-    return (
-        pd.DataFrame(
-            {
-                "url": urls,
-                "title": titles,
-                "article_text": speeches,
-                "images": images,
-                "publish_info": publish_info,
-                "tags": tags,
-            }
-        )
-        .reset_index()
-        .rename(columns={"index": "id"})
-    )
+    return pd.DataFrame(
+        {
+            "url": urls,
+            "title": titles,
+            "article_text": speeches,
+            "images": images,
+            "publish_info": publish_info,
+            "tags": tags,
+        }
+    ).reset_index(drop=True)
 
 
 if __name__ == "__main__":
@@ -156,10 +152,8 @@ if __name__ == "__main__":
     threshold = 10
 
     speeches = get_speeches(api)
-    speeches = (
-        speeches.loc[:, ~speeches.columns.str.contains("Unnamed")]
-        .reset_index()
-        .rename(columns={"index": "id"})
+    speeches = speeches.loc[:, ~speeches.columns.str.contains("Unnamed")].drop(
+        columns=["id"]
     )
 
     links, titles = extract_new_speeches(speeches.title.values[threshold])
@@ -171,8 +165,12 @@ if __name__ == "__main__":
         drop=True
     )
 
-    updated_speeches = pd.concat([delta_speeches, speeches])
-    updated_speeches.to_csv("./data/modi_speeches.csv")
+    updated_speeches = (
+        pd.concat([delta_speeches, speeches])
+        .reset_index()
+        .rename(columns={"index": "id"})
+    )
+    updated_speeches.to_csv("./data/modi_speeches.csv", index=False)
     api.dataset_create_version(
         "./data/",
         version_notes=f"Updated on {datetime.datetime.now().strftime('%Y-%m-%d')}",
