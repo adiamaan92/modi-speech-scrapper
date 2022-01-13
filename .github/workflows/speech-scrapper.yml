@@ -37,4 +37,7 @@ jobs:
         run: |
           source .venv/bin/activate
           python scrapper.py
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
 
