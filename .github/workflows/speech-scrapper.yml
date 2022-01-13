@@ -8,6 +8,7 @@ jobs:
   modi-speech-scrapper:
     name: Delta updater
     runs-on: ubuntu-latest
+    environment: prod
 
     steps:
       - name: checkout repo content
