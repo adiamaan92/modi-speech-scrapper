@@ -132,15 +132,19 @@ def extract_speech_details(
         urls.append(link)
         titles.append(title)
 
-    return pd.DataFrame(
-        {
-            "url": urls,
-            "title": titles,
-            "speech": speeches,
-            "image": images,
-            "publish_info": publish_info,
-            "tags": tags,
-        }
+    return (
+        pd.DataFrame(
+            {
+                "url": urls,
+                "title": titles,
+                "speech": speeches,
+                "image": images,
+                "publish_info": publish_info,
+                "tags": tags,
+            }
+        )
+        .reset_index()
+        .rename(columns={"index": "id"})
     )
 
 
@@ -152,6 +156,12 @@ if __name__ == "__main__":
     threshold = 10
 
     speeches = get_speeches(api)
+    speeches = (
+        speeches.loc[:, ~speeches.columns.str.contains("Unnamed")]
+        .reset_index()
+        .rename(columns={"index": "id"})
+    )
+
     links, titles = extract_new_speeches(speeches.title.values[threshold])
 
     existing_titles = speeches.title.values
