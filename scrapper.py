@@ -137,8 +137,8 @@ def extract_speech_details(
             {
                 "url": urls,
                 "title": titles,
-                "speech": speeches,
-                "image": images,
+                "article_text": speeches,
+                "images": images,
                 "publish_info": publish_info,
                 "tags": tags,
             }
