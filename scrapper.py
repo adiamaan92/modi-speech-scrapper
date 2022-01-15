@@ -167,6 +167,7 @@ if __name__ == "__main__":
 
     updated_speeches = (
         pd.concat([delta_speeches, speeches])
+        .reset_index(drop=True)
         .reset_index()
         .rename(columns={"index": "id"})
     )
