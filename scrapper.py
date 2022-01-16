@@ -165,6 +165,9 @@ if __name__ == "__main__":
         drop=True
     )
 
+    if delta_speeches.shape[0] == 0:
+        exit()
+
     updated_speeches = (
         pd.concat([delta_speeches, speeches])
         .reset_index(drop=True)
