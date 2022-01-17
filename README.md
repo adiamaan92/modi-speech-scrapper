@@ -1,4 +1,4 @@
-# PM Modi Text Speeches
+# PM Modi text speech scrapper
 
 ## Context
 Narendra Damodaradas Modi is an Indian politician serving as the 14th and current prime minister of India since 2014. Modi was the chief minister of Gujarat from 2001 to 2014 and is a Member of Parliament from Varanasi.
@@ -14,7 +14,7 @@ Dataset is hosted here, https://www.kaggle.com/adiamaan/modi-speeches
 ## Data description:
 The dataset contains the following columns,
 
-| Syntax       | Description                                                               |
+| Column       | Description                                                               |
 | ------------ | ------------------------------------------------------------------------- |
 | id           | Unique ID                                                                 |
 | url          | URL from where the data is scraped                                        |
