@@ -7,7 +7,9 @@ Modi had a long political career, before quickly rising within his party from th
 
 ![Modi](https://images.hindustantimes.com/img/2021/09/04/550x309/PTI09-03-2021-000085B-0_1630691680953_1630739078395.jpg)
 
-> The scrapper is scheduled to run every day at 8 AM using a Github Action workflow. The dataset contains the speech translated primarily from Hindi to English. The dataset includes speeches starting from 2018.
+> The scrapper is scheduled to run every day at 8 AM using a Github Action workflow. 
+
+The dataset contains the speech translated primarily from Hindi to English. The dataset includes speeches starting from 2018.
 
 ## Dataset:
 Dataset is hosted here, https://www.kaggle.com/adiamaan/modi-speeches
