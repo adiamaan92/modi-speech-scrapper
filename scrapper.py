@@ -3,7 +3,7 @@ Speech scrapper
 ----------------
 
 This module adds the latest speech to the existing dataset and updates
-the Kaggle dataset
+the Kaggle dataset at, https://www.kaggle.com/adiamaan/modi-speeches
 
 Workflow
 --------
