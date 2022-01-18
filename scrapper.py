@@ -14,6 +14,7 @@ upload back to Kaggle
 
 """
 import datetime
+import logging
 import re
 from typing import List, Tuple
 
@@ -23,6 +24,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 from lxml import etree
 
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+logging.basicConfig(level=logging.INFO)
 
 
 def get_speeches(api: KaggleApi) -> pd.DataFrame:
@@ -166,6 +168,7 @@ if __name__ == "__main__":
     )
 
     if delta_speeches.shape[0] == 0:
+        logging.info("No new speeches found")
         exit()
 
     updated_speeches = (
@@ -179,3 +182,4 @@ if __name__ == "__main__":
         "./data/",
         version_notes=f"Updated on {datetime.datetime.now().strftime('%Y-%m-%d')}",
     )
+    logging.info(f"Added {len(updated_speeches.shape[0])} speeches")
