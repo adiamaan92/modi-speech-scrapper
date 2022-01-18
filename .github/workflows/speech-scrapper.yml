@@ -51,7 +51,7 @@ jobs:
         
       # Step 7: Activate the venv and run the scrapper.py file.
       # Change this filename to your scrapper code
-      - name: Run tests
+      - name: Run scrapper
         run: |
           source .venv/bin/activate
           python scrapper.py
