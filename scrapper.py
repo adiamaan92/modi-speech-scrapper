@@ -182,4 +182,4 @@ if __name__ == "__main__":
         "./data/",
         version_notes=f"Updated on {datetime.datetime.now().strftime('%Y-%m-%d')}",
     )
-    logging.info(f"Added {len(updated_speeches.shape[0])} speeches")
+    logging.info(f"Added {updated_speeches.shape[0]} speeches")
