@@ -16,7 +16,9 @@ Narendra Damodaradas Modi is an Indian politician serving as the 14th and curren
 Modi had a long political career, before quickly rising within his party from the Chief Minister of Gujarat (2001 - 2014) to the Primi Minister candidate in the 2014 election. Known for his excellent oratorical skills and ability to connect to the common man, this dataset gives access to all his text speeches starting from 2018.
 
 <div align='center'>
+  
 ![Modi](https://images.hindustantimes.com/img/2021/09/04/550x309/PTI09-03-2021-000085B-0_1630691680953_1630739078395.jpg)
+  
 </div>
 
 > The scrapper is scheduled to run every day at 8 AM using a Github Action workflow. 
