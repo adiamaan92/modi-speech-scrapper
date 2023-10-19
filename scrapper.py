@@ -67,7 +67,17 @@ def extract_new_speeches(latest_speech_title: str) -> Tuple[List[str], List[str]
         if r.status_code != 200:
             break
 
-        tree = etree.fromstring(r.text, parser=etree.HTMLParser())
+        try:                 
+            tree = etree.fromstring(r.text, parser=etree.HTMLParser())
+        except Exception as e:
+            print(f"Error parsing the webpage: {e}")
+            print("i = ",i)
+            i+=1
+            continue
+
+        if tree is None:          ##Check if tree is None first
+            print("i = ",i)
+            break
 
         for element in tree.xpath("//div[contains(@class, 'speechesItemLink')]"):
             title = element.xpath(".//a//text()")[0]
@@ -116,8 +126,9 @@ def extract_speech_details(
             )
         )
 
+        ##Check is speech is None first to avoid ZeroDivisionError
         # Check if the speech is in english. If it contains hindi, this filter will skip over it.
-        if len(re.sub("[^a-zA-Z]", "", speech)) / len(speech) < 0.20:
+        if speech and len(re.sub("[^a-zA-Z]", "", speech)) / len(speech) < 0.20:
             continue
 
         speeches.append(speech)
